@@ -23,6 +23,12 @@ public class LoginController extends AnchorPane implements Initializable {
     @FXML
     Text actiontarget;
 
+    private Main app;
+
+    public void setApp(Main app) {
+        this.app = app;
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resourceBundle) {
         userNameEntry.setPromptText("Enter your user name");
@@ -33,8 +39,8 @@ public class LoginController extends AnchorPane implements Initializable {
         ActorUser user = new ActorUser(userNameEntry.getText(), passwordEntry.getText());
         if (Authenticate.validate(user.getUsername(), user.getPassword())) {
             try {
-                Main.setRoot("templates/sample");
-            } catch (IOException e) {
+                app.goToBusinessList();
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         } else {
