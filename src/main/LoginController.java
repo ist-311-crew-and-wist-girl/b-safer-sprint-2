@@ -9,7 +9,6 @@ import javafx.scene.text.Text;
 import main.model.security.Authenticate;
 import main.model.users.ActorUser;
 
-import java.io.IOException;
 import java.util.ResourceBundle;
 import java.net.URL;
 

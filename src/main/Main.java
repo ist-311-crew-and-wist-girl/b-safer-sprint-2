@@ -4,22 +4,17 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.fxml.JavaFXBuilderFactory;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.Objects;
 
 public class Main extends Application {
 
-    private static Scene scene;
-
     // Method to attempt to correct issue with changing pages in documents
     private Stage stage;
-    private final double MINIMUM_WINDOW_WIDTH = 800.0;
+    private final double MINIMUM_WINDOW_WIDTH = 700.0;
     private final double MINIMUM_WINDOW_HEIGHT = 400.0;
 
     @Override
@@ -71,6 +66,15 @@ public class Main extends Application {
         try {
             BusinessListController businessList = (BusinessListController) replaceSceneContent("templates/businessList.fxml");
             businessList.setApp(this);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void goToBusinessPage() {
+        try {
+            BusinessPageController businessPage = (BusinessPageController) replaceSceneContent("templates/businessPage.fxml");
+            businessPage.setApp(this);
         } catch (Exception e) {
             e.printStackTrace();
         }
