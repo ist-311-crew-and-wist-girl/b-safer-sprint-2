@@ -31,13 +31,12 @@ public class BusinessPageController extends AnchorPane implements Initializable 
 
     private Main app;
 
-    public void setApp(Main app) {
-        this.app = app;
-    }
+    Business business;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resourceBundle) {
-        Business business = new Business(10);
+    public void setApp(Main app, Business businessToSet) {
+        this.business = businessToSet;
+        this.app = app;
+
         businessNameLabel.setText(business.getBusinessName());
         businessNameLabel.setVisible(true);
         addressLabel.setText(business.getBusinessAddress());
@@ -50,5 +49,10 @@ public class BusinessPageController extends AnchorPane implements Initializable 
         urlLabel.setVisible(true);
         phoneLabel.setText(business.getBusinessPhone());
         phoneLabel.setVisible(true);
+
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resourceBundle) {
     }
 }

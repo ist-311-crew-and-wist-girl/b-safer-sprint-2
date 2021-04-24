@@ -7,6 +7,8 @@ import javafx.fxml.JavaFXBuilderFactory;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import main.model.business.Business;
+import main.model.business.BusinessList;
 
 import java.io.InputStream;
 
@@ -16,6 +18,8 @@ public class Main extends Application {
     private Stage stage;
     private final double MINIMUM_WINDOW_WIDTH = 700.0;
     private final double MINIMUM_WINDOW_HEIGHT = 400.0;
+
+    Business currentBis;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -71,10 +75,12 @@ public class Main extends Application {
         }
     }
 
-    public void goToBusinessPage() {
+    public void goToBusinessPage(Business bus) {
         try {
+
             BusinessPageController businessPage = (BusinessPageController) replaceSceneContent("templates/businessPage.fxml");
-            businessPage.setApp(this);
+            businessPage.setApp(this, bus);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
