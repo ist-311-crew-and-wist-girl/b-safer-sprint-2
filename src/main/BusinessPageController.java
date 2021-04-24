@@ -1,7 +1,9 @@
 package main;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import main.model.business.Business;
@@ -29,6 +31,16 @@ public class BusinessPageController extends AnchorPane implements Initializable 
     @FXML
     public Label phoneLabel;
 
+    @FXML
+    private Button revList;
+
+    @FXML
+    private Button back;
+
+    @FXML
+    private Button review;
+
+
     private Main app;
 
     Business business;
@@ -54,5 +66,20 @@ public class BusinessPageController extends AnchorPane implements Initializable 
 
     @Override
     public void initialize(URL location, ResourceBundle resourceBundle) {
+    }
+
+    @FXML
+    void backToBusinessList(ActionEvent event) {
+        app.goToBusinessList();
+    }
+
+    @FXML
+    void reviewBusiness(ActionEvent event) {
+        app.goToReview(business);
+    }
+
+    @FXML
+    void goToList(ActionEvent event) {
+        app.goToReviewList(business);
     }
 }

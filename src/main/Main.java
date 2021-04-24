@@ -86,6 +86,24 @@ public class Main extends Application {
         }
     }
 
+    public void goToReview(Business bus) {
+        try {
+            BusinessReviewController review = (BusinessReviewController) replaceSceneContent("templates/businessReviewPage.fxml");
+            review.setApp(this, bus);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void goToReviewList(Business bus) {
+        try {
+            BusinessReviewListController reviewList = (BusinessReviewListController) replaceSceneContent("templates/businessReviewListPage.fxml");
+            reviewList.setApp(this, bus);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public static void main(String[] args) {
         launch(args);
     }

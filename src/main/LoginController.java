@@ -35,8 +35,8 @@ public class LoginController extends AnchorPane implements Initializable {
     }
 
     @FXML protected void handleSignInButtonAction(ActionEvent event) {
-        ActorUser user = new ActorUser(userNameEntry.getText(), passwordEntry.getText());
-        if (Authenticate.validate(user.getUsername(), user.getPassword())) {
+        ActorUser user = new ActorUser(userNameEntry.getText());
+        if (Authenticate.validate(user.getUsername(), passwordEntry.getText())) {
             try {
                 app.goToBusinessList();
             } catch (Exception e) {
